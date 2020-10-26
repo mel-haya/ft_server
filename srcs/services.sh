@@ -20,6 +20,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=MA/ST=rhamna/L=Ben
 
 #wordpress
 cp latest.tar.gz /var/www
+rm -f latest.tar.gz
 cd /var/www
 tar -xf latest.tar.gz
 rm -f latest.tar.gz
