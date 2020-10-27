@@ -1,7 +1,6 @@
 
 apt-get update
 apt-get install -y nginx
-apt-get install -y mariadb-server
 apt-get install -y php
 apt-get install -y php-cli php-fpm php-cgi
 apt-get install -y php-mysql
@@ -10,9 +9,9 @@ apt-get install -y php-mbstring
 apt-get purge -y apache2
 
 #mysql
-service mysql start
-mysql < start.sql
-mysql wordpress -u root --password=  < wordpress.sql
+#service mysql start
+#mysql < start.sql
+#mysql wordpress -u root --password=  < wordpress.sql
 
 #ssl
 apt-get install -y openssl
