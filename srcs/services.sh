@@ -20,13 +20,13 @@ apt-get install -y mysql-server
 chown -R mysql: /var/lib/mysql
 service mysql start
 
-#init database
-
+#init database  
 mysql -u root -e "CREATE DATABASE wordpress;";
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';"
-mysql -u root -e "FLUSH PRIVILEGES;";
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'";
 mysql -u root -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user='root';";
-mysql wordpress -u root --password=  < wordpress.sql
+mysql -u root -e "UPDATE mysql.user SET authentication_string=PASSWORD('root') WHERE USER='root';";
+mysql -u root -e "FLUSH PRIVILEGES;";
+mysql wordpress -u root --password=root  < wordpress.sql
 
 #ssl
 apt-get install -y openssl
